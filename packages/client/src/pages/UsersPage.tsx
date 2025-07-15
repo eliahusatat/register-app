@@ -5,7 +5,6 @@ import UserCard from '../components/UserCard';
 import { showNotification } from '@mantine/notifications';
 
 interface User {
-  id: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -48,9 +47,9 @@ export default function UsersPage() {
       </Title>
     ) : (
       <SimpleGrid cols={3} spacing="md" >
-        {users.map((u) => (
+        {users.map((u, index) => (
           <UserCard
-            key={u.id}
+            key={index}
             firstName={u.firstName}
             lastName={u.lastName}
             email={u.email}

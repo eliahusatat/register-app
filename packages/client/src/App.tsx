@@ -4,13 +4,12 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import UsersPage from './pages/UsersPage';
 
-
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <Routes>
-      <Route path="/" element={<RegisterPage />} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route path="/login" element={<LoginPage onLogin={() => setIsLoggedIn(true)} />} />
       <Route
         path="/users"
@@ -22,7 +21,7 @@ export default function App() {
           )
         }
       />
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="*" element={<Navigate to="/register" replace />} />
     </Routes>
   );
 }

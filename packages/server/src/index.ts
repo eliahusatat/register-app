@@ -1,6 +1,5 @@
 import express, { Request, Response } from "express";
 import { User } from "@register-app/shared";
-import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
 import cors from "cors";
 
@@ -45,7 +44,6 @@ app.post("/api/user", (req: Request, res: Response) => {
   const { firstName, lastName, email, password, phone } = parseResult.data;
 
   const newUser: User = {
-    id: uuidv4(),
     firstName,
     lastName,
     email,
@@ -61,7 +59,7 @@ app.post("/api/user", (req: Request, res: Response) => {
 
 
 app.get("/api/user", (req: Request, res: Response) => {
-  const safeUsers = users.map(({ password, phone, ...rest }) => rest);
+  const safeUsers = users.map(({password, phone, ...rest }) => rest);
   res.json(safeUsers);
 });
 
