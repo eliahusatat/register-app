@@ -30,7 +30,7 @@ This app lets users register, login, and view registered users, all stored in me
 ### 🧩 Clone the repository
 
 ```bash
-git clone https://github.com/eliahuNexphy/register-app.git
+git clone https://github.com/eliahusatat/register-app.git
 ```
 
 ### 🧩 Enter to the root folder
