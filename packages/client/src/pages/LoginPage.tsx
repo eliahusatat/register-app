@@ -43,7 +43,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           maxWidth: 400
         }
       }
-        });
+    });
     }
   };
 
