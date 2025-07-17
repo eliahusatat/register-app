@@ -32,9 +32,9 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
   }
             });
       onLogin();
-      navigate('/users');
+      navigate('/users');  
     } catch (error) {
-        showNotification({
+        showNotification({ 
           title: "Failure",
           message: "Invalid credentials",
           color: "red",
@@ -48,7 +48,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
   };
 
   return (
-    <Container size="xs">
+    <Container size="xs"> 
       <Title mb="md">Login</Title>
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <TextInput label="Email" {...form.getInputProps('email')} required />
