@@ -1,21 +1,27 @@
-import { Card, Text, Group } from "@mantine/core";
+import { Card, Text, Group, ActionIcon } from "@mantine/core";
+import type { PublicUser } from "@register-app/shared";
+import { IconPencil } from "@tabler/icons-react"; 
 
 interface UserCardProps {
-  firstName: string;
-  lastName: string;
-  email: string;
+  user : PublicUser;
+  canEdit?: boolean;
+  onEdit: () => void;
 }
 
-export default function UserCard({ firstName, lastName, email }: UserCardProps) {
+export default function UserCard({ user, canEdit ,onEdit}: UserCardProps) {
   return (
     <Card shadow="sm" padding="md" radius="md" withBorder>
       <Group  mb="xs">
         <Text>
-          {firstName} {lastName}
+          {user.firstName} {user.lastName}
         </Text>
+        {canEdit && (<ActionIcon onClick={onEdit} variant="light" color="blue">
+          <IconPencil size={18} />
+        </ActionIcon>)
+     }
       </Group>
       <Text size="sm" color="dimmed">
-        {email}
+        {user.email}
       </Text>
     </Card>
   );

@@ -1,6 +1,6 @@
 import { useForm } from '@mantine/form';
 import { TextInput, PasswordInput, Button, Container, Title } from '@mantine/core';
-import axios from 'axios';
+import axios from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 import { showNotification } from '@mantine/notifications';
 
@@ -20,18 +20,12 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
 
   const handleSubmit = async (values: typeof form.values) => {
     try {
-      await axios.post('http://localhost:3001/api/login', values);
-            showNotification({
-            title: "Success",
-            message: "Login successful!",
-            color: "green",
-            styles: {
-            root: {
-            maxWidth: 400
-          }
-  }
-            });
+      const res = await axios.post('/login', values);
+
       onLogin();
+      const { token, user } = res.data;
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
       navigate('/users');  
     } catch (error) {
         showNotification({ 
