@@ -46,6 +46,19 @@ npm install
 ```
 This installs dependencies for all workspaces (client, server, shared).
 
+### 🧩 build the Shared : 
+in the Shared folder run:
+```bash
+npm run build
+```
+
+### 🧩 add .env file to the server folder like this : 
+```code
+PORT=3001
+JWT_SECRET=your app auth secret key
+MONGO_URI=your mongo uri
+```
+
 ### 🧩 Start the Server : 
 
 ```bash
