@@ -43,8 +43,8 @@ const theme = createTheme({
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <MantineProvider theme={theme} >
-        <Notifications position="bottom-right"/>
+      <MantineProvider theme={theme}>
+        <Notifications position="top-right" zIndex={9999} containerWidth={600}   styles={{root: {position: 'fixed',top: 80, right: 80,},}}/>
         <App />
       </MantineProvider>
     </BrowserRouter>
